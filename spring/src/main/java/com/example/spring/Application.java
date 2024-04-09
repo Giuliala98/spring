@@ -1,4 +1,10 @@
-//Scrivi una applicazione web Spring Boot che alla endpoint GET v1/ciao?nome=Giuseppe&provincia=Lombardia risponde con "Ciao Giuseppe, com'è il tempo in Lombardia?"
+//Scrivi una applicazione web Spring Boot che alla endpoint GET v2/ciao/Lombardia?nome=Giuseppe risponde con un oggetto JSON formato cosi:
+//
+//{
+//    "nome": "Giuseppe",
+//    "provincia": "Lombardia",
+//    "saluto": "Ciao Giuseppe, com'è il tempo in Lombardia?"
+//}
 
 package com.example.spring;
 
