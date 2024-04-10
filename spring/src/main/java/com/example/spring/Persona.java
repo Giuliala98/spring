@@ -1,9 +1,9 @@
 package com.example.spring;
 
 public class Persona {
-    public String nome;
-    public String provincia;
-    public String saluto;
+    private String nome;
+    private String provincia;
+    private String saluto;
 
     public Persona(String nome, String provincia, String saluto) {
         this.nome = nome;
