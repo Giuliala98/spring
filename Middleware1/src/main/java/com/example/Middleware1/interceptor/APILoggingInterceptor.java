@@ -9,8 +9,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Component
 public class APILoggingInterceptor implements HandlerInterceptor {
-
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+    @Override
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
+        System.out.println("User-Agent header: " + request.getHeader("User-Agent"));
         return true;
     }
 
