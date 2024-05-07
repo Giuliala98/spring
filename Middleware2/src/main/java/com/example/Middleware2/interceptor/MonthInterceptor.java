@@ -30,25 +30,21 @@ public class MonthInterceptor implements HandlerInterceptor {
         if (monthNumber == null || monthNumber.isEmpty()) {
             response.sendError(HttpServletResponse.SC_BAD_REQUEST, "monthNumber header is required");
             return false;
-        } else {
-            boolean monthFound = false;
+        }
+
             for (MonthEntity m : months) {
                 if (monthNumber.equals(m.getMonthNumber().toString())) {
                     request.setAttribute("selectedMonth", monthNumber);
                     response.setStatus(HttpServletResponse.SC_OK);
-                    monthFound = true;
-                    break;
+                    return true;
                 }
             }
-            if (!monthFound) {
                 MonthEntity emptyMonth = new MonthEntity();
                 emptyMonth.setEnglishName("nope");
                 emptyMonth.setItalianName("nope");
                 emptyMonth.setGermanName("nope");
                 request.setAttribute("selectedMonth", emptyMonth);
                 response.setStatus(HttpServletResponse.SC_OK);
-            }
-        }
         return true;
     }
 

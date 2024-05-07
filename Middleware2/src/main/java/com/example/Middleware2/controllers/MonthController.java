@@ -1,17 +1,20 @@
 package com.example.Middleware2.controllers;
 
-import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.*;
 
+import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.net.http.HttpRequest;
 import java.time.Month;
 
 @RestController
 @RequestMapping("/month")
-@AllArgsConstructor
 public class MonthController {
 
     @GetMapping("")
-    public Month getMonth(@ModelAttribute("month") Month month){
-        return month;
+    public Month getMonth(HttpServletRequest request){
+        return (Month) request.getAttribute("selectedMonth");
     }
 }
