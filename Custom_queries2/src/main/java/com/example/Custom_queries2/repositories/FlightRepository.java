@@ -14,9 +14,9 @@ public interface FlightRepository extends JpaRepository<Flight, Long> {
     @Query("SELECT f FROM Flight f WHERE f.fromAirport like %:fromAirport%")
     List<Flight> findByFromAirport(@Param("fromAirport") String fromAirport);
 
-    @Query("SELECT f FROM Flight f WHERE f.status = 'ONTIME'")
+    @Query("SELECT f FROM Flight f WHERE f.status = 'ON_TIME'")
     List<Flight> findByStatusOntime();
 
-    @Query("SELECT f FROM Flight f WHERE f.status IN ('p1, p2')")
+    @Query("SELECT f FROM Flight f WHERE f.status IN (:p1, :p2)")
     List<Flight> findByStatusIn(@Param("p1") Status p1, @Param("p2") Status p2);
 }

@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -59,7 +58,7 @@ public class FlightController {
     }
 
     @GetMapping("/status")
-    public List<Flight> getFlightsByStatus(@RequestParam("p1") String p1, @RequestParam("p2") String p2) {
-        return flightRepository.findByStatusIn(Arrays.asList(p1, p2));
+    public List<Flight> getFlightsByStatus(@RequestParam("p1") Status p1, @RequestParam("p2") Status p2) {
+        return flightRepository.findByStatusIn(p1, p2);
     }
 }
